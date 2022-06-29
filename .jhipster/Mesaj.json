@@ -1,0 +1,29 @@
+{
+  "changelogDate": "20220603170350",
+  "dto": "no",
+  "fields": [
+    {
+      "fieldName": "mesajIcerik",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "aktif",
+      "fieldType": "Boolean"
+    }
+  ],
+  "name": "Mesaj",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "login",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "mesaj",
+      "ownerSide": true,
+      "relationshipName": "sahib",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}

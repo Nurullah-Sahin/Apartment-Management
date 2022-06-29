@@ -1,0 +1,73 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-apartman-heading" data-cy="ApartmanCreateUpdateHeading" jhiTranslate="apartApp.apartman.home.createOrEditLabel">
+        Create or edit a Apartman
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="text" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="apartApp.apartman.ad" for="field_ad">Ad</label>
+          <input type="text" class="form-control" name="ad" id="field_ad" data-cy="ad" formControlName="ad" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="apartApp.apartman.katSayisi" for="field_katSayisi">Kat Sayisi</label>
+          <input type="number" class="form-control" name="katSayisi" id="field_katSayisi" data-cy="katSayisi" formControlName="katSayisi" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="apartApp.apartman.daireSayisi" for="field_daireSayisi">Daire Sayisi</label>
+          <input
+            type="number"
+            class="form-control"
+            name="daireSayisi"
+            id="field_daireSayisi"
+            data-cy="daireSayisi"
+            formControlName="daireSayisi"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="apartApp.apartman.adres" for="field_adres">Adres</label>
+          <textarea class="form-control" name="adres" id="field_adres" data-cy="adres" formControlName="adres"></textarea>
+        </div>
+
+        <!--<div class="row mb-3">
+          <label class="form-label" jhiTranslate="apartApp.apartman.doluDaireSayisi" for="field_doluDaireSayisi">Dolu Daire Sayisi</label>
+          <input
+            type="number"
+            class="form-control"
+            name="doluDaireSayisi"
+            id="field_doluDaireSayisi"
+            data-cy="doluDaireSayisi"
+            formControlName="doluDaireSayisi"
+          />
+        </div>-->
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,86 @@
+<div>
+  <h2 id="page-heading" data-cy="ApartmanHeading">
+    <span jhiTranslate="apartApp.apartman.home.title">Apartmen</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="apartApp.apartman.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-apartman"
+        [routerLink]="['/apartman/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="apartApp.apartman.home.createLabel"> Create a new Apartman </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="apartmen?.length === 0">
+    <span jhiTranslate="apartApp.apartman.home.notFound">No apartmen found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="apartmen && apartmen.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="apartApp.apartman.ad">Ad</span></th>
+          <th scope="col"><span jhiTranslate="apartApp.apartman.katSayisi">Kat Sayisi</span></th>
+          <th scope="col"><span jhiTranslate="apartApp.apartman.daireSayisi">Daire Sayisi</span></th>
+          <th scope="col"><span jhiTranslate="apartApp.apartman.adres">Adres</span></th>
+          <th scope="col"><span jhiTranslate="apartApp.apartman.doluDaireSayisi">Dolu Daire Sayisi</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let apartman of apartmen; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/apartman', apartman.id, 'view']">{{ apartman.id }}</a>
+          </td>
+          <td>{{ apartman.ad }}</td>
+          <td>{{ apartman.katSayisi }}</td>
+          <td>{{ apartman.daireSayisi }}</td>
+          <td>{{ apartman.adres }}</td>
+          <td>{{ apartman.doluDaireSayisi }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/apartman', apartman.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/apartman', apartman.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(apartman)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

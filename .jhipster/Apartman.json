@@ -1,0 +1,32 @@
+{
+  "changelogDate": "20220603164729",
+  "dto": "no",
+  "fields": [
+    {
+      "fieldName": "ad",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "katSayisi",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "daireSayisi",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "adres",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "doluDaireSayisi",
+      "fieldType": "Integer"
+    }
+  ],
+  "name": "Apartman",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceImpl"
+}
