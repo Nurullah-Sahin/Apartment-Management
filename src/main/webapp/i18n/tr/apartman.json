@@ -1,0 +1,28 @@
+{
+  "apartApp": {
+    "apartman": {
+      "home": {
+        "title": "Apartmen",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Apartman",
+        "createOrEditLabel": "Create or edit a Apartman",
+        "notFound": "No Apartmen found"
+      },
+      "created": "A new Apartman is created with identifier {{ param }}",
+      "updated": "A Apartman is updated with identifier {{ param }}",
+      "deleted": "A Apartman is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Apartman {{ id }}?"
+      },
+      "detail": {
+        "title": "Apartman"
+      },
+      "id": "ID",
+      "ad": "Ad",
+      "katSayisi": "Kat Sayisi",
+      "daireSayisi": "Daire Sayisi",
+      "adres": "Adres",
+      "doluDaireSayisi": "Dolu Daire Sayisi"
+    }
+  }
+}

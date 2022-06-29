@@ -1,0 +1,30 @@
+{
+  "changelogDate": "20220603165358",
+  "dto": "no",
+  "fields": [
+    {
+      "fieldName": "no",
+      "fieldType": "String"
+    }
+  ],
+  "name": "Daire",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "login",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "daire",
+      "ownerSide": true,
+      "relationshipName": "oturanBilgi",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityField": "id",
+      "otherEntityName": "apartman",
+      "relationshipName": "apartmanid",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}

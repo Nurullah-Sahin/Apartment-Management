@@ -1,0 +1,26 @@
+{
+  "apartApp": {
+    "daire": {
+      "home": {
+        "title": "Daires",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Daire",
+        "createOrEditLabel": "Create or edit a Daire",
+        "notFound": "No Daires found"
+      },
+      "created": "A new Daire is created with identifier {{ param }}",
+      "updated": "A Daire is updated with identifier {{ param }}",
+      "deleted": "A Daire is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Daire {{ id }}?"
+      },
+      "detail": {
+        "title": "Daire"
+      },
+      "id": "ID",
+      "no": "No",
+      "oturanBilgi": "Oturan Bilgi",
+      "apartmanid": "Apartmanid"
+    }
+  }
+}

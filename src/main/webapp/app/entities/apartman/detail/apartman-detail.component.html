@@ -1,0 +1,48 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="apartman">
+      <h2 data-cy="apartmanDetailsHeading"><span jhiTranslate="apartApp.apartman.detail.title">Apartman</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ apartman.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="apartApp.apartman.ad">Ad</span></dt>
+        <dd>
+          <span>{{ apartman.ad }}</span>
+        </dd>
+        <dt><span jhiTranslate="apartApp.apartman.katSayisi">Kat Sayisi</span></dt>
+        <dd>
+          <span>{{ apartman.katSayisi }}</span>
+        </dd>
+        <dt><span jhiTranslate="apartApp.apartman.daireSayisi">Daire Sayisi</span></dt>
+        <dd>
+          <span>{{ apartman.daireSayisi }}</span>
+        </dd>
+        <dt><span jhiTranslate="apartApp.apartman.adres">Adres</span></dt>
+        <dd>
+          <span>{{ apartman.adres }}</span>
+        </dd>
+        <dt><span jhiTranslate="apartApp.apartman.doluDaireSayisi">Dolu Daire Sayisi</span></dt>
+        <dd>
+          <span>{{ apartman.doluDaireSayisi }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/apartman', apartman.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

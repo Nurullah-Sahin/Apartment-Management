@@ -1,0 +1,65 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-daire-heading" data-cy="DaireCreateUpdateHeading" jhiTranslate="apartApp.daire.home.createOrEditLabel">
+        Create or edit a Daire
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="text" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="apartApp.daire.no" for="field_no">No</label>
+          <input type="text" class="form-control" name="no" id="field_no" data-cy="no" formControlName="no" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="apartApp.daire.oturanBilgi" for="field_oturanBilgi">Oturan Bilgi</label>
+          <select class="form-control" id="field_oturanBilgi" data-cy="oturanBilgi" name="oturanBilgi" formControlName="oturanBilgi">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="userOption.id === editForm.get('oturanBilgi')!.value?.id ? editForm.get('oturanBilgi')!.value : userOption"
+              *ngFor="let userOption of usersSharedCollection; trackBy: trackUserById"
+            >
+              {{ userOption.login }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="apartApp.daire.apartmanid" for="field_apartmanid">Apartmanid</label>
+          <select class="form-control" id="field_apartmanid" data-cy="apartmanid" name="apartmanid" formControlName="apartmanid">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="apartmanOption.id === editForm.get('apartmanid')!.value?.id ? editForm.get('apartmanid')!.value : apartmanOption"
+              *ngFor="let apartmanOption of apartmenSharedCollection; trackBy: trackApartmanById"
+            >
+              {{ apartmanOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
